@@ -11,10 +11,6 @@ export default function EmployeeDataTable() {
   let firstItemIndex = lastItemIndex - itemsPerPage;
   let currentEmployees = data.slice(firstItemIndex, lastItemIndex);
 
-  //   let goToPage = (pageNumber) => {
-  //     setCurrentPage(pageNumber);
-  //   };
-
   let totalPages = Math.ceil(data.length / itemsPerPage);
 
   let numberOfPages = [];
@@ -32,10 +28,9 @@ export default function EmployeeDataTable() {
       console.log("fetched Data", data);
       setData(data);
     } catch (error) {
-  console.error("failed to fetch data");
-  alert("Failed to fetch data");
-}
-
+      console.error("failed to fetch data");
+      alert("Failed to fetch data");
+    }
   };
 
   useEffect(() => {
@@ -47,15 +42,14 @@ export default function EmployeeDataTable() {
       <h1>Employee Data Table</h1>
       <div className="dataTable">
         <table border="0" cellPadding="10" cellSpacing="1">
-            <thead>
-
-          <tr style={{ backgroundColor: "#009978", color: "white" }}>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-            </thead>
+          <thead>
+            <tr style={{ backgroundColor: "#009978", color: "white" }}>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+            </tr>
+          </thead>
           <tbody style={{ backgroundColor: "lightgrey" }}>
             {currentEmployees &&
               currentEmployees.map((details, index) => (
@@ -86,7 +80,9 @@ export default function EmployeeDataTable() {
             Previous
           </button>
 
-          <span className="displayPageNumber"
+          <span
+            className="displayPageNumber"
+            data-testid="current-page"
             style={{
               backgroundColor: "#009978",
               color: "white",
@@ -98,13 +94,10 @@ export default function EmployeeDataTable() {
               fontWeight: "500",
               width: "40px",
               height: "40px",
-            }}>
-            
-          
+            }}
+          >
             {currentPage}
           </span>
-
-         
 
           <button
             onClick={() =>
