@@ -11,7 +11,7 @@ export default function EmployeeDataTable() {
   let firstItemIndex = lastItemIndex - itemsPerPage;
   let currentEmployees = data.slice(firstItemIndex, lastItemIndex);
 
-  let totalPages = Math.ceil(data.length / itemsPerPage);
+ let totalPages = data.length > 0 ? Math.ceil(data.length / itemsPerPage) : 0;
 
   let numberOfPages = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -27,6 +27,7 @@ export default function EmployeeDataTable() {
       let data = await res.json();
       console.log("fetched Data", data);
       setData(data);
+      setCurrentPage(1);
     } catch (error) {
       console.error("failed to fetch data");
       alert("Failed to fetch data");
