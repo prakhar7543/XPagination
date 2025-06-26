@@ -11,7 +11,7 @@ export default function EmployeeDataTable() {
   let firstItemIndex = lastItemIndex - itemsPerPage;
   let currentEmployees = data.slice(firstItemIndex, lastItemIndex);
 
- let totalPages = data.length > 0 ? Math.ceil(data.length / itemsPerPage) : 0;
+  let totalPages = data.length > 0 ? Math.ceil(data.length / itemsPerPage) : 0;
 
   let numberOfPages = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -55,10 +55,10 @@ export default function EmployeeDataTable() {
             {currentEmployees &&
               currentEmployees.map((details, index) => (
                 <tr key={index}>
-                  <th>{details.id}</th>
-                  <th>{details.name}</th>
-                  <th>{details.email}</th>
-                  <th>{details.role}</th>
+                  <td>{details.id}</td>
+                  <td>{details.name}</td>
+                  <td>{details.email}</td>
+                  <td>{details.role}</td>
                 </tr>
               ))}
           </tbody>
