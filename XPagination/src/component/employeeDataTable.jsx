@@ -7,6 +7,9 @@ export default function EmployeeDataTable() {
 
   let itemsPerPage = 10;
 
+  const isDataReady = data.length > 0;
+
+
   let lastItemIndex = currentPage * itemsPerPage;
   let firstItemIndex = lastItemIndex - itemsPerPage;
   let currentEmployees = data.slice(firstItemIndex, lastItemIndex);
@@ -75,7 +78,7 @@ export default function EmployeeDataTable() {
         >
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
+            disabled={!isDataReady || currentPage === 1}
             style={{ backgroundColor: "#009978", color: "white" }}
           >
             Previous
@@ -104,7 +107,7 @@ export default function EmployeeDataTable() {
             onClick={() =>
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }
-            disabled={currentPage === totalPages}
+            disabled={!isDataReady || currentPage === totalPages}
             style={{ backgroundColor: "#009978", color: "white" }}
           >
             Next
