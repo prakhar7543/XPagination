@@ -83,7 +83,7 @@ export default function EmployeeDataTable() {
             Previous
           </button>
 
-          <p
+          <div>
             className="displayPageNumber"
             style={{
               backgroundColor: "#009978",
@@ -97,9 +97,11 @@ export default function EmployeeDataTable() {
               width: "40px",
               height: "40px",
             }}
-          >
+          
             {currentPage}
-          </p>
+          </div>
+
+         
 
           <button
             onClick={() =>
