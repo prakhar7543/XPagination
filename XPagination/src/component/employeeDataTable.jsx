@@ -47,12 +47,15 @@ export default function EmployeeDataTable() {
       <h1>Employee Data Table</h1>
       <div className="dataTable">
         <table border="0" cellPadding="10" cellSpacing="1">
+            <thead>
+
           <tr style={{ backgroundColor: "#009978", color: "white" }}>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
           </tr>
+            </thead>
           <tbody style={{ backgroundColor: "lightgrey" }}>
             {currentEmployees &&
               currentEmployees.map((details, index) => (
@@ -83,7 +86,7 @@ export default function EmployeeDataTable() {
             Previous
           </button>
 
-          <div className="displayPageNumber"
+          <span className="displayPageNumber"
             style={{
               backgroundColor: "#009978",
               color: "white",
@@ -99,7 +102,7 @@ export default function EmployeeDataTable() {
             
           
             {currentPage}
-          </div>
+          </span>
 
          
 
