@@ -32,8 +32,10 @@ export default function EmployeeDataTable() {
       console.log("fetched Data", data);
       setData(data);
     } catch (error) {
-      console.error("failed to fetch data");
-    }
+  console.error("failed to fetch data");
+  alert("Failed to fetch data");
+}
+
   };
 
   useEffect(() => {
@@ -66,7 +68,7 @@ export default function EmployeeDataTable() {
         <div
           className="btn"
           style={{
-            marginTop: '10px',
+            marginTop: "10px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -81,12 +83,23 @@ export default function EmployeeDataTable() {
             Previous
           </button>
 
-          <button
+          <p
             className="displayPageNumber"
-            style={{ backgroundColor: "#009978", color: "white" }}
+            style={{
+              backgroundColor: "#009978",
+              color: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "10px",
+              fontSize: "larger",
+              fontWeight: "500",
+              width: "40px",
+              height: "40px",
+            }}
           >
             {currentPage}
-          </button>
+          </p>
 
           <button
             onClick={() =>
